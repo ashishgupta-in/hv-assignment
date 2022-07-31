@@ -92,6 +92,16 @@ import json
 sns = boto3.client('sns')
 
 
+def publish_message(url, state, status):
+    message = {"URL": url, "State": state, "Status": str(status)}
+    response = sns.publish(
+        TargetArn="arn:aws:sns:us-west-2:368355641188:reminant-health-status-topic",
+        Message=json.dumps({'default': json.dumps(message)}),
+        Subject='Health Check Failed',
+        MessageStructure='json'
+    )
+
+
 def main():
     config_file = open('/home/scripts/config.csv')
     csvreader = csv.reader(config_file)
@@ -100,16 +110,15 @@ def main():
             response = requests.get(url[0])
             state = "Healthy"
             status = response.status_code
+            if str(response.status_code).startswith("4") or str(response.status_code).startswith("5"):
+                state = "Unhealthy"
+                status = "Client Error" if str(
+                    response.status_code).startswith("4") else "Server Error"
+                publish_message(url, state, status)
         except Exception as e:
             state = "Unhealthy"
-            status = e
-            message = {"URL": url, "State": state, "Status": str(status)}
-            response = sns.publish(
-                TargetArn="${var.sns_topic_arn}",
-                Message=json.dumps({'default': json.dumps(message)}),
-                Subject='Health Check Failed',
-                MessageStructure='json'
-            )
+            status = str(e)
+            publish_message(url, "Unhealthy", status)
         finally:
             print("URL : {}\nState : {}\nStatus : {}".format(
                 url, state, status))

@@ -19,7 +19,7 @@ sed -i "s+access_key   = \"\"+access_key   = \"$access_key\"+" $INPUT_FILE
 sed -i "s+secret_key   = \"\"+secret_key   = \"$secret_key\"+" $INPUT_FILE
 sed -i "s+health_service_endpoints = \"\"+health_service_endpoints = \"$endpoint\"+" $INPUT_FILE
 sed -i "s+subscription_email = \"\"+subscription_email = \"$email\"+" $INPUT_FILE
-sed -i "s+availability_zone_count = 0\"\"+availability_zone_count = \"$az_count\"+" $INPUT_FILE
+sed -i "s+availability_zone_count = 0+availability_zone_count = $az_count+" $INPUT_FILE
 
 # Terraform Deployment
 cd terraform 
