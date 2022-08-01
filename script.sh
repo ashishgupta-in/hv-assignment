@@ -24,5 +24,5 @@ sed -i "s+availability_zone_count = 0+availability_zone_count = $az_count+" $INP
 # Terraform Deployment
 cd terraform 
 terraform init
-terraform apply -json -auto-approve >> ../deployment-log.txt
-terraform output >> ../output-log.txt
+terraform apply -json -auto-approve > ../deployment-log.txt
+terraform output > ../output-log.txt
