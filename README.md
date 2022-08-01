@@ -41,10 +41,10 @@
 ## Outputs
 
 - The following are the outputs after the services are up and running:<br><br>
-  - ```Static Web:```<br><br>
+  - **Static Web:**<br><br>
   ![Static Web](./assests/images/assign-01.png)
 
-  - ```Health Check Service:```<br><br>
+  - **Health Check Service:**<br><br>
   ![Health Check Service](./assests/images/assign-02.png)
 
 <a></a>
