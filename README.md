@@ -27,13 +27,13 @@
   ```
 - Enter required details.
 
-  ![User Input](assests/images/user-input.png)
+  ![User Input](./assests/images/user-input.png)
 
 - The deployment will start after user input. Wait for the deployment to complete.
 
 - Confirm subscription for health check notification mails.
 
-  ![Subscription Email](assests/images/subscription-mail.png)
+  ![Subscription Email](./assests/images/subscription-mail.png)
 
 ## Implementation
 ```To be documented```
@@ -42,18 +42,18 @@
 
 - The following are the outputs after the services are up and running:<br><br>
   - ```Static Web:```<br><br>
-  ![Static Web](assests/images/assign-01.png)
+  ![Static Web](./assests/images/assign-01.png)
 
   - ```Health Check Service:```<br><br>
-  ![Health Check Service](assests/images/assign-02.png)
+  ![Health Check Service](./assests/images/assign-02.png)
 
 <a></a>
 
 ## Logs
 
-- **Deployment Logs:** Will be stored in deployment-log.txt file in project root directory.
+- **Deployment Logs:** Will be stored in ```deployment-log.txt``` file in project root directory.
 <br><br>
-```Sample:```
+Sample:
   ```json
   {"@level":"info","@message":"Terraform 1.2.6","@module":"terraform.ui","@timestamp":"2022-08-01T10:57:10.734132+05:30","terraform":"1.2.6","type":"version","ui":"1.0"}
 
@@ -62,10 +62,10 @@
   {"@level":"info","@message":"Apply complete! Resources: 26 added, 0 changed, 0 destroyed.","@module":"terraform.ui","@timestamp":"2022-08-01T11:00:18.483160+05:30","changes":{"add":26,"change":0,"remove":0,"operation":"apply"},"type":"change_summary"}
   ```
 
-- **Output Logs:** Will be stored in output-log.txt file in project root directory.
+- **Output Logs:** Will be stored in ```output-log.txt``` file in project root directory.
 <br><br>
-```Sample:```
-  ```json
+Sample:
+  ```
   ami_id = "ami-098e42ae54c764c35"
   priv_subnets_id = [
     "subnet-03f8daf7faff317a2",
@@ -80,4 +80,3 @@
   static_web_ip = "35.167.51.138"
   vpc_id = "vpc-060bbaf921489412b"
   ```
-
